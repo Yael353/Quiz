@@ -1,40 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Gruppuppgift: Skapa ett Quiz med Next.js och Global State
 
-## Getting Started
+I det här gruppprojektet ska ni skapa ett interaktivt quiz med hjälp av Next.js och antingen Redux eller Context för global state-hantering. Om ni använde Context i förra uppgiften, ska ni nu använda Redux, och tvärtom. Detta projekt kommer att ge er praktik i att skapa dynamiska webbapplikationer med global state och client-side navigation.
 
-First, run the development server:
+### Sätt upp projektet
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Öppna en terminal och navigera (`cd`) till den katalog där ni vill skapa ert projekt.
+2. Skapa ett nytt Next.js-projekt: `npx create-next-app@latest quiz-app`.
+3. Gå in i projektet: `cd quiz-app`.
+4. Installera Redux Toolkit och React-Redux om ni ska använda det (beroende på vad ni inte använde sist): `npm install @reduxjs/toolkit react-redux`.
+
+## Projektinstruktioner
+
+- Använd Next.js routing för att skapa minst två sidor: en **Admin-sida** och en **Quiz-sida**.
+
+  - På **Admin-sidan** ska administratörer kunna lägga till, ta bort och uppdatera quizfrågor.
+  - På **Quiz-sidan** ska användare kunna starta ett quiz, välja svar på flervalsfrågor, och till slut se sitt resultat.
+
+- Designa quizfrågor som flervalsfrågor där användaren väljer ett svar från flera alternativ.
+
+- Överväg vilken data som behövs för att skapa frågor med tillhörande svarsalternativ och hur ni kan hålla reda på antal rätt i ett quiz.
+
+- Implementera lämpliga Redux-aktioner och reducers eller Context-metoder för att hantera tillstånd och logik.
+
+## Inlämning
+
+1. Skapa ett gemensamt repo på GitHub där all källkod för projektet ska lagras.
+2. Ladda upp era filer till GitHub:
+
+```
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin <Adressen till ditt repo>
+git push -u origin main
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Klicka på uppgiften i canvas och ange länken till ditt repo.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### :boom: Mål med uppgiften
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Efter denna uppgift ska ni ha fördjupad förståelse för global state-hantering i moderna webbapplikationer och hur man skapar interaktiva, dynamiska webbsidor med Next.js.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+---
 
-## Learn More
+### :runner: Extrauppgifter
 
-To learn more about Next.js, take a look at the following resources:
+För att utöka ert projekt, överväg följande extra funktioner:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Lägg till spelare**: Implementera funktionalitet för att låta användare ange sina namn innan de startar quizzet. Håll reda på vilken spelare som spelar och visa en **high-score-sida** med de bästa resultaten.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. **Skapa flera quiz**: Utveckla applikationen så att den har flera olika quiz på separata sidor. Användare kan välja vilket quiz de vill ta från en huvudmeny.
 
-## Deploy on Vercel
+3. **Använd localStorage**: Implementera localStorage för att persistent spara och ladda quizfrågor, så att admin kan återanvända dem även efter att webbläsaren stängts.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Responsiv design**: Se till att ert quiz ser bra ut och fungerar på både mobiltelefoner, surfplattor och datorer.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. **Stil och användarupplevelse**: Använd CSS eller ett ramverk som Tailwind CSS för att förbättra användargränssnittet och användarupplevelsen på er quizsida.
