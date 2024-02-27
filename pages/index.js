@@ -4,6 +4,7 @@ export default function Home() {
   return (
     <>
       <p>Tja!</p>
+      <p>hej</p>
       <Link href="/admin">Go to admin page</Link>
     </>
   );
