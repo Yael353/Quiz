@@ -1,7 +1,5 @@
 //questions
 
-//questions
-
 export const questions = {
   questions: [
     {
