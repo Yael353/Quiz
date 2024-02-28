@@ -1,3 +1,9 @@
+import Link from "next/link";
+
 export default function quiz() {
-  return <></>;
+  return (
+    <>
+      <Link href="/">Home</Link>
+    </>
+  );
 }
