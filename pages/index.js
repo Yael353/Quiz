@@ -5,8 +5,20 @@ export default function Home() {
   return (
     <>
       <Navbar />
-
-      <Link href="/admin">Go to admin page</Link>
+      <div className="flex justify-center  items-center ">
+        <Link
+          href="/admin"
+          className="inline-block bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-md"
+        >
+          Admin
+        </Link>
+        <Link
+          href="/quiz"
+          className="inline-block bg-purple-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-md"
+        >
+          Guest
+        </Link>
+      </div>
     </>
   );
 }
