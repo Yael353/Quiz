@@ -1,6 +1,6 @@
 //questions
 
-export const questions = {
+export let questions = {
   questions: [
     {
       id: 1,
@@ -74,3 +74,17 @@ export const questions = {
     },
   ],
 };
+
+export const addQuestion = (newQuestion) => {
+  questions.questions.push(newQuestion);
+};
+
+export const editQuestion = (questionId, updateQuestion) => {
+  questions.questions = questions.questions.map((question) =>
+  question.id === questionId ? { ...question, ...updateQuestion}: question);
+};
+
+export const deleteQuestion = (questionId) => {
+  questions.questions = questions.questions.filter((question) => question.id !== questionId);
+};
+
