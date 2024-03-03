@@ -2,6 +2,7 @@ import { useState } from 'react';
 import React from 'react'
 import Link from "next/link"
 import { questions, addQuestion, editQuestion, deleteQuestion } from "./data/questions";
+import { v4 as uuidv4 } from 'uuid';
 
 function adminPage () {
 
@@ -36,7 +37,7 @@ function adminPage () {
     if (newQuestion.id){
       editQuestion(newQuestion.id, newQuestion);
     }else{
-      addQuestion({ ...newQuestion, id: Date.now() });
+      addQuestion({ ...newQuestion, id: uuidv4() });
     }
     setNewQuestion({
       id: null,
@@ -51,54 +52,55 @@ function adminPage () {
   };
 
   return (
-    <div>
-      <Link href="/">Back home</Link>
-
-      <h2>Add/Edit Questions</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Question:
-          <input
-            type="text"
-            name="question"
-            value={newQuestion.question}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        {newQuestion.answers.map((answer, index) => (
-          <label key={index}>
-            Answer {index + 1}:
-            <input
+    <div className='flex flex-row items-center justify-evenly h-screen'>
+      <div>  
+       <Link href="/" className='bg-red-700 text-white text-lg border rounded-lg p-2'>Back home</Link>
+        <h2 className='pt-4'>Add/Edit Questions</h2>
+        <form onSubmit={handleSubmit} className='flex flex-col gap-5'>
+          <label>
+            Question:
+            <input className='focus:outline-none border w-full p-2'
               type="text"
-              value={answer}
-              onChange={(e) => handleAnswerChange(index, e.target.value)}
+              name="question"
+              value={newQuestion.question}
+              onChange={handleInputChange}
             />
           </label>
-        ))}
-        <br />
-        <label>
-          Correct Answer:
-          <input
-            type="text"
-            name="correctAnswer"
-            value={newQuestion.correctAnswer}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-
+          {newQuestion.answers.map((answer, index) => (
+            <label key={index}>
+              Answer {index + 1}:
+              <input className='focus:outline-none border w-full p-2'
+                type="text"
+                value={answer}
+                onChange={(e) => handleAnswerChange(index, e.target.value)}
+              />
+            </label>
+          ))}
+          <br />
+          <label>
+            Correct Answer:
+            <input className='focus:outline-none border w-full p-2'
+              type="text"
+              name="correctAnswer"
+              value={newQuestion.correctAnswer}
+              onChange={handleInputChange}
+            />
+          </label>
+          <br />
+          <button type="submit" className='bg-indigo-900 text-white p-3 rounded-lg'>Submit</button>
+        </form>
+      </div>
+      <div>
       <h2>Delete Questions</h2>
-      <ul>
+      <ul className='flex flex-col gap-5 w-fit'>
         {questions.questions.map((question) => (
-          <li key={question.id}>
+          <li className='bg-green-300 w-fit text-white pl-2 flex justify-between items-center gap-5' key={question.id}>
             {question.question}{' '}
-            <button onClick={() => handleDelete(question.id)}>Delete</button>
+            <button className='bg-red-400 p-2' onClick={() => handleDelete(question.id)}>Delete</button>
           </li>
         ))}
       </ul>
+      </div>
     </div>
   );
 }

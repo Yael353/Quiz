@@ -30,20 +30,22 @@ function quiz() {
 
   return (
     <>
-      <Link href="/">Home</Link>
-      <h1>{questions.questions[currentQuestion].question}</h1>
+    <div className='flex flex-col h-screen justify-center items-center gap-20'>
+      <Link href="/" className='bg-red-700 text-white text-lg border rounded-lg p-2'>Home</Link>
+      <h1 className='text-5xl'>{questions.questions[currentQuestion].question}</h1>
 
-      <ul>
+      <ul className='flex items-center text-center gap-10'>
         {questions.questions[currentQuestion].answers.map((answer, index) => (
-          <li key={index} onClick={() => handleAnswerClick(answer)}>
+          <li className='border rounded-lg p-5 cursor-pointer hover:bg-green-300 hover:text-white' key={index} onClick={() => handleAnswerClick(answer)}>
             {answer}
           </li>
         ))}
       </ul>
 
       {selectedAnswer && (
-        <button onClick={handleNextQuestion}>Next Question</button>
+        <button className='bg-indigo-900 text-white p-3 rounded-lg' onClick={handleNextQuestion}>Next Question</button>
       )}
+    </div>
     </>
   );
 }

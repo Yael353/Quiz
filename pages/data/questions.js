@@ -85,6 +85,7 @@ export const editQuestion = (questionId, updateQuestion) => {
 };
 
 export const deleteQuestion = (questionId) => {
+  console.log("Deleting question with id:", questionId);
   questions.questions = questions.questions.filter((question) => question.id !== questionId);
+  console.log("Updated questions:", questions.questions);
 };
-
