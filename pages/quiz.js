@@ -36,7 +36,9 @@ function quiz() {
 
       <ul className='flex items-center text-center gap-10'>
         {questions.questions[currentQuestion].answers.map((answer, index) => (
-          <li className='border rounded-lg p-5 cursor-pointer hover:bg-green-300 hover:text-white' key={index} onClick={() => handleAnswerClick(answer)}>
+          <li className={`border rounded-lg p-5 cursor-pointer transition duration-300 ${
+            selectedAnswer === answer ? 'bg-purple-600 text-white' : 'bg-white text-black'
+          }`} key={index} onClick={() => handleAnswerClick(answer)}>
             {answer}
           </li>
         ))}
