@@ -24,8 +24,14 @@ export const QuizProvider = ({ children }) => {
     },
   ]);
 
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+
   const updateQuestions = (updatedQuestions) => {
     setQuestions(updatedQuestions);
+  };
+
+  const updateSelectedAnswer = (answer) => {
+    setSelectedAnswer(answer);
   };
 
   return (
@@ -33,6 +39,8 @@ export const QuizProvider = ({ children }) => {
       value={{
         questions,
         updateQuestions,
+        selectedAnswer,
+        updateSelectedAnswer,
       }}
     >
       {children}
