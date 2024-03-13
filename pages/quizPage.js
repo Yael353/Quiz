@@ -15,7 +15,7 @@ function quizPage() {
       setScore(score + 1);
     }
   };
-
+  let totalQuestions = quiz.questions.length;
   const handleNextQuestion = () => {
     // Move to the next question
     if (currentQuestion < quiz.questions.length - 1) {
@@ -23,7 +23,7 @@ function quizPage() {
       setSelectedAnswer("");
     } else {
       // End of the quiz, you can navigate to the result page or show a summary
-      alert(`Quiz completed! Your score: ${score}`);
+      alert(`Quiz completed! Your score: ${score} / ${totalQuestions}`);
     }
   };
 
