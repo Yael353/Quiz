@@ -1,6 +1,6 @@
 //questions
 
-export let questions = {
+export let quiz = {
   questions: [
     {
       id: 1,
@@ -76,6 +76,26 @@ export let questions = {
 };
 
 export const addQuestion = (newQuestion) => {
+  quiz.questions.push(newQuestion);
+};
+
+export const editQuestion = (questionId, updateQuestion) => {
+  quiz.questions = quiz.questions.map((question) =>
+    question.id === questionId ? { ...question, ...updateQuestion } : question
+  );
+};
+
+export const deleteQuestion = (questionId) => {
+  console.log("Deleting question with id:", questionId);
+  quiz.questions = quiz.questions.filter(
+    (question) => question.id !== questionId
+  );
+  console.log("Updated questions:", quiz.questions);
+};
+
+/*
+
+export const addQuestion = (newQuestion) => {
   questions.questions.push(newQuestion);
 };
 
@@ -89,3 +109,4 @@ export const deleteQuestion = (questionId) => {
   questions.questions = questions.questions.filter((question) => question.id !== questionId);
   console.log("Updated questions:", questions.questions);
 };
+*/
